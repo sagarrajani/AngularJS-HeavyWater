@@ -1,0 +1,38 @@
+<header class="topbar" *ngIf="auth.userInfo.user_id">
+  <div class="col-left">
+    <div class="toggle-menu">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <img class="hw-logo" src="{{auth.userInfo.user_metadata.client_logo}}" alt="Logo"/>
+  </div>
+  <div class="header-searchbar">
+    <input type="text" [(ngModel)]="term" #termvalue  class="searchbar-input" (input)="search(termvalue.value)" />
+  </div>
+  <div class="col-right">
+    <div class="avatar" *ngIf="auth.userInfo.user_id">
+      <img src="{{auth.userInfo.picture}}">
+      <div class="user-menu user-menu-wrap">
+        <div class="row">
+          <div class="col col-avatar">
+            <img src="{{auth.userInfo.picture}}">
+          </div>
+          <div class="col col-details">
+            <div class="user-name">{{auth.userInfo.nickname}}</div>
+            <div class="user-email">{{auth.userInfo.email}}</div>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="row">
+          <a href="javascript:;" (click)="logout()">Sign out</a>
+        </div>
+      </div>
+    </div>
+    <div class="sm">
+      <i class="fa fa-refresh" (click)="refresh()" aria-hidden="true"></i>
+    </div>
+    <div class="sm">
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,16 @@
+<section class="login-section">
+  
+ <div class="login-box-wrapper">
+    <div class="login-error" *ngIf="auth.isLoginFailed">Incorrect Username/Password</div>
+    <div class="login-error" *ngIf="!isValidInput">Fields can't be blank</div>
+
+    <md-card class="login-box">
+      <i class="triangle-up-left"></i>
+      <input class="username-input" name="email" type="text" #username placeholder="Username"/>
+      <input class="password-input" name="password" type="password" #password placeholder="Password"/>
+      <button md-raised-button class="login-button" (click)="login(username.value, password.value, rememberme)">LOGIN</button>
+      <a class="forgot-link" (click)="forgotPassword()" href="javascript:void(0)">Forgot Password?</a>
+    </md-card>
+
+  </div>
+</section>

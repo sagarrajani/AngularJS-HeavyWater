@@ -1,0 +1,82 @@
+[md-list-avatar] {
+  line-height: 40px;
+  text-align: center;
+  max-width: 14px;
+}
+
+md-list-item {
+  border-bottom: 1px solid #979797;
+  padding-left: 7px;
+  cursor: pointer;
+  background: white;
+  &:hover {
+    .on-hover {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+}
+
+h3 {
+    display:table-cell;
+    font-size: 16px;
+    width:20%;
+    padding:40px;
+    border-left:solid 0px #CCC;
+    border-bottom:solid 0px #CCC;
+    text-align:left;
+    vertical-align:middle;
+    font-weight: normal;
+}
+
+.action {
+  font-size: 20px;
+  color: #757575;
+  line-height: 15px;
+  width: 20px;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.action:first-child {
+  margin-left: 0;
+}
+
+.bor-filled {
+  color: green;
+}
+
+.order-received {
+  color: #ffcc00;
+}
+
+.order-in-progress {
+  color: gray;
+}
+.order-failed {
+  color: red;
+}
+.order-fulfilled {
+  color: green;
+}
+
+.application-completed:before{
+  color: green;
+  content: "\f06e";
+}
+
+.email-send:before{
+  color: gray;
+  content: "\f0e0";
+}
+
+.on-active {
+  display: none;
+}
+.on-hover {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

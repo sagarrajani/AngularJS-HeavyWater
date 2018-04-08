@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  background: #fafafa;
+}
+
+.list {
+  display: block;
+  width: 80%;
+}
+
+md-list {
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.item-row {
+  &.selected {
+    background: white;
+    margin: 15px -15px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+    /deep/ md-list-item .on-active {
+      display: block;
+    }
+    /deep/ md-list-item .on-hover {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+}
+
+.center {
+  text-align: center;
+}

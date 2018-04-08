@@ -1,0 +1,21 @@
+<sidebar></sidebar>
+
+
+<app-loading-spinner #loading *ngIf="showSpinner" class="list"></app-loading-spinner>
+<div class="list">
+    
+  <md-list>
+      <div *ngIf="items|async as items; else loading">
+          <ng-container *ngIf="items.length; else noItems">
+            <div class="item-row" *ngFor="let item of items | slice:6 | searchfilter:'Borrower_FirstName,Borrower_LastName,LoanNumber':search" [class.selected]="selectedItemId === item.ORDER_ID">
+              <list-item [item]="item"></list-item>
+                  <div *ngIf="selectedItem|async as itemData">
+                    <list-item-details [data]="itemData" *ngIf="selectedItemId === item.ORDER_ID"></list-item-details>
+                  </div>
+            </div>
+          </ng-container>
+        <ng-template #noItems class="center">No Items</ng-template>
+    </div>
+  </md-list>
+</div>
+

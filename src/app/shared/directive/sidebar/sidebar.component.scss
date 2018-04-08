@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  width: 20%;
+  min-width: 185px;
+  max-width: 250px;
+  padding-right: 15px;
+  box-sizing: border-box;
+
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+}
+
+.link {
+  line-height: 45px;
+  display: inline-block;
+  font-weight: normal;
+  .fa {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+}

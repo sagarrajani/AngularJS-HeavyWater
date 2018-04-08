@@ -1,0 +1,21 @@
+.full-width-input {
+  display: block;
+}
+
+.mat-input-container {
+  width: 100%;
+}
+
+.mat-select {
+  height: 38px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.group-wrap {
+  display: flex;
+  > * + * {
+    margin-left: 10px;
+  }
+}
