@@ -1,0 +1,53 @@
+<h2 md-dialog-title>NEW APPLICATION</h2>
+<md-dialog-content>
+  <form #appForm="ngForm">
+    <md-input-container class="full-width-input">
+      <input mdInput required name="loan_number" placeholder="Loan number" ngModel>
+    </md-input-container>
+    <div class="group-wrap">
+      <md-input-container>
+        <input mdInput required name="consumer_firstName" placeholder="First name" ngModel>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput required name="consumer_lastName" placeholder="Last name" ngModel>
+      </md-input-container>
+    </div>
+    <div class="group-wrap">
+      <md-input-container>
+        <input mdInput required name="consumer_birthday" placeholder="Birthday (MM/DD/YYYY)" pattern="(?:(0[1-9]|1[012])[\/.](0[1-9]|[12][0-9]|3[01])[\/.][1-2][0-9]{3})$" ngModel>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput required name="consumer_ssn" placeholder="SSN" ngModel>
+      </md-input-container>
+    </div>
+    <md-select placeholder="Lookback Period" [(ngModel)]="selectedValue" required name="consumer_lookback" class="full-width-input">
+      <md-option *ngFor="let lookback of period" [value]="lookback.viewValue">{{lookback.value}}</md-option>
+    </md-select>
+    <md-input-container class="full-width-input">
+      <input mdInput required name="consumer_address" placeholder="Address" ngModel>
+    </md-input-container>
+    <div class="group-wrap">
+      <md-input-container>
+        <input mdInput required name="consumer_city" placeholder="City" ngModel>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput required name="consumer_state" placeholder="State" ngModel>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput required name="consumer_zip" placeholder="Zip" ngModel>
+      </md-input-container>
+    </div>
+    <div class="group-wrap">
+    <md-input-container class="full-width-input">
+      <input mdInput required name="consumer_email" placeholder="Email"  pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,10}$" ngModel>
+    </md-input-container>
+    <md-input-container class="full-width-input">
+      <input mdInput required name="consumer_phone" placeholder="Phone" ngModel>
+    </md-input-container>
+    </div>
+  </form>
+</md-dialog-content>
+<div class="md-dialog-footer-actions">
+    <button class="primary" md-raised-button (click)="appForm.valid&&saveApp(appForm)">SUBMIT APPLICATION</button>
+    <button md-button md-dialog-close>CANCEL</button>
+</div>

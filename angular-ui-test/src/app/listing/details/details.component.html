@@ -1,0 +1,160 @@
+<div>
+  <div class="app-short-details col-details">
+    <div class="col">
+      <!-- <div class="row">
+       <div class="label">ID</div>
+        <span class="value">{{data['order-id']}}</span>
+      </div> -->
+      <div class="row">
+        <div class="label">STATUS</div>
+        <span class="value">{{data.status}}</span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="label">REPORT ID</div>
+        <span class="value">{{data['report-id']}}</span>
+      </div>
+      <!-- <div class="row">
+        <div class="label">CONSUMER SSN</div>
+        <span class="value">{{data['consumer-ssn']}}</span>
+      </div> -->
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="label">CREATED DATE</div>
+        <abbr title="{{data['created date']}}"><span class="value">{{data['created date']|date}}</span></abbr>
+      </div>
+      <div class="row">
+        <div class="label">START DATE</div>
+        <abbr title="{{data['start date']}}"><span class="value">{{data['start date']|date}}</span></abbr>
+      </div>
+      <div class="row">
+        <div class="label">END DATE</div>
+        <abbr title="{{data['end date']}}"><span class="value">{{data['end date']|date}}</span></abbr>
+      </div>
+    </div>
+  </div>
+  <div class="details-container">
+    <md-tab-group>
+      <md-tab label="ASSETS">
+
+        <div *ngIf="data.asset">  
+        <div class="c-table-wrap" *ngFor="let inst of data.asset.institutes">
+         <h3>{{inst['institute name']}} - {{inst['account number']}}</h3>
+         <table class="c-table table-header">
+         <thead>
+              <tr class="table-header">
+                <th>ACCOUNT</th>
+                <th>BALANCE</th>
+                <th>LAST UPDATE</th>
+            </tr>
+         </thead>
+        </table>
+          <table class="c-table" >
+            <tbody>
+              <tr *ngFor="let acc of inst.accounts">
+                <td class="acc-name">{{acc['account name']}}</td>
+                <td>{{acc['account balance']}}</td>
+                <td>{{acc['last update date']}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong>{{inst['total balance']}}</strong></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>  
+      </md-tab>
+
+   <!--   <md-tab label="INCOME">
+        <table class="c-table table-header">
+          <thead>
+            <tr>
+              <th>NET MONTHLY</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+        </table>
+
+        <div class="c-table-wrap">
+          <table class="c-table" >
+            <tbody>
+              <tr *ngFor="let m of data.income['NET MONTHLY INCOME']|objKeys">
+                <td>{{m}}</td>
+                <td>{{data.income['NET MONTHLY INCOME'][m]}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="inc-data col-details">
+          <div class="col">
+            <div class="row">
+              <div class="label">NET ANNUAL</div>
+              <span class="value">{{data.income['net annual']}}</span>
+            </div>
+            <div class="row">
+              <div class="label">PROJECTED NET ANNUAL</div>
+              <span class="value">{{data.income['projected net annual']}}</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="label">GROSS ANNUAL</div>
+              <span class="value">{{data.income['gross annual']}}</span>
+            </div>
+            <div class="row">
+              <div class="label">PROJECTED GROSS ANNUAL</div>
+              <span class="value">{{data.income['projected gross annual']}}</span>
+            </div>
+          </div>
+        </div>
+
+        <table class="c-table table-header">
+          <thead>
+            <tr>
+              <th>INCOME STREAM</th>
+              <th>ACCOUNT ID</th>
+              <th>START DT</th>
+              <th>END DT</th>
+              <th>TYPE</th>
+              <th>CADENCE</th>
+              <th>NET MONTHLY</th>
+              <th>NET ANNUAL</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="c-table-wrap">
+          <table class="c-table" >
+            <tbody>
+              <tr *ngFor="let str of data.income['income streams']">
+                <td>{{str['company name']}}</td>
+                <td>{{str['account id']}}</td>
+                <td>{{str['start date']}}</td>
+                <td>{{str['end date']}}</td>
+                <td>{{str['type']}}</td>
+                <td>{{str['cadence']}}</td>
+                <td>{{str['net monthly']}}</td>
+                <td>{{str['net annualy']}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </md-tab> -->
+    </md-tab-group>
+  </div>
+  <div *ngIf="data.asset" class="details-footer">
+    <button type="voa_report" class="primary" md-raised-button onclick="document.getElementById('report_link').click()">DOWNLOAD VOA REPORT</button>
+    <a download="voa_report.pdf" id="report_link" target="_blank" [href]= "sanitize(data['ExperianReportPath_PDF'])" hidden>voa_report.pdf</a>
+    <button style="visibility:hidden;"> </button>
+    
+    <button type="submit" class="primary" md-raised-button onclick="document.getElementById('link').click()">DOWNLOAD STATEMENT</button>
+    <a download="bank-statement.pdf" id="link" target="_blank" [href]= "sanitize(data['BankStatement_Path'])" hidden>bank-statement.pdf</a>
+    <button style="visibility:hidden;"> </button>
+    
+    <button class="primary" md-raised-button>SUBMIT TO LOS</button>
+  </div>
+</div>

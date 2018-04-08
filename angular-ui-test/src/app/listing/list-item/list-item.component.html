@@ -1,0 +1,17 @@
+<a [routerLink]="'/'" [queryParams]="{order: item['ORDER_ID']}">
+  <md-list-item>
+    <span md-list-avatar>
+      <a class="action {{item['ORDER_STATUS']|className}}" href="javascript:;">
+        <abbr title="{{item['ORDER_STATUS']}}"><i class="fa {{item['BORROWER_STATUS']|className}}" aria-hidden="true"></i></abbr>
+      </a>
+      </span>
+        <h3>{{item['Borrower_FirstName']}}&nbsp;&nbsp;{{item['Borrower_LastName']}}</h3>
+        <h3>{{item['LoanNumber']}}</h3>
+        <h3></h3><h3></h3>
+     <span class="item-actions">
+        <a class="action on-active" [routerLink]="'/'" (click)="$event.stopPropagation()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </span>
+  </md-list-item>
+</a>
